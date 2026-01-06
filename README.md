@@ -51,7 +51,7 @@
 Bài thực hành giúp em:
 - Làm quen với GitHub
 - Hiểu thêm về kiểm thử phần mềm không chỉ là kiểm thử chức năng
-- Nhận thức được tầm quan trọng của trải nghiệm người dùng trong phát triển phần mềm
+- Nhận thức được tầm quan trọng của trải nghiệm người dùng trong việc phát triển phần mềm
 --------------------------------------------------------------------------------------------------------
 
 
