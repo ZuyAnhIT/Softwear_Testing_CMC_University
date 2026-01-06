@@ -54,6 +54,4 @@ Bài thực hành giúp em:
 - Nhận thức được tầm quan trọng của trải nghiệm người dùng trong phát triển phần mềm
 --------------------------------------------------------------------------------------------------------
 
-**Sinh viên thực hiện**  
-Nguyễn Văn A
 
