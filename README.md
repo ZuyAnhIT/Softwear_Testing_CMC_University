@@ -61,8 +61,7 @@
 - **Minh chứng:**
   - Ảnh chụp kết quả có kèm dấu hiệu cá nhân  
     (đăng nhập Chrome và email sinh viên trong ô sign up)
-
-![Kết quả Can't Unsee](screenshots/Softwear_Testing_Day1_Week1.png)
+- Kết quả/Minh chứng:![Kết quả Can't Unsee](Softwear_Testing_Day1_Week1.png)
 
 ---
 
