@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="StudentAnalyzerTest" time="0.816" tests="0" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="StudentAnalyzerTest$EPLegacyTests" time="0.061" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="25"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -60,4 +60,51 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="69.0"/>
   </properties>
+  <testcase name="printDecisionTableCoverage" classname="StudentAnalyzerTest" time="0.166">
+    <system-out><![CDATA[
+================================================================================
+DECISION TABLE TESTING - COMPLETE COVERAGE REPORT
+================================================================================
+
+📊 DECISION TABLE 1: countExcellentStudents()
+   ✓ Rule 1: NULL list
+   ✓ Rule 2: EMPTY list
+   ✓ Rule 3: NULL + INVALID + BELOW + EXCELLENT
+   ✓ Rule 4: NULL + BELOW + EXCELLENT
+   ✓ Rule 5: INVALID + BELOW + EXCELLENT
+   ✓ Rule 6: INVALID + EXCELLENT only
+   ✓ Rule 7: BELOW threshold only
+   ✓ Rule 8: EXCELLENT only
+   ✓ Rule 9: NULL only
+   ✓ Rule 10: INVALID only
+
+📊 DECISION TABLE 2: calculateValidAverage()
+   ✓ Rule 1: NULL list
+   ✓ Rule 2: EMPTY list
+   ✓ Rule 3: ALL INVALID
+   ✓ Rule 4: MIX valid/invalid
+   ✓ Rule 5: ALL VALID
+   ✓ Rule 6: SINGLE valid
+   ✓ Rule 7: NULL only
+
+📊 DECISION TABLE 3: Boundary Combinations
+   ✓ BC1-5: All boundary value combinations
+
+📊 DECISION TABLE 4: Extreme Scenarios
+   ✓ EX1-5: Large lists, extreme ratios, ultimate combinations
+
+================================================================================
+COVERAGE STATISTICS:
+   • Decision Rules: 17/17 (100%)
+   • Boundary Combinations: 5/5 (100%)
+   • Extreme Scenarios: 5/5 (100%)
+   • Legacy BVA/EP: 30 tests retained
+   • TOTAL TEST CASES: 55+
+================================================================================
+✅ DECISION TABLE COVERAGE: 100% COMPLETE
+================================================================================
+
+]]></system-out>
+  </testcase>
+  <testcase name="testBasicCases" classname="StudentAnalyzerTest$EPLegacyTests" time="0.04"/>
 </testsuite>

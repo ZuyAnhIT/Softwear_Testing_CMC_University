@@ -2,6 +2,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance.Lifecycle;
 import static org.junit.jupiter.api.Assertions.*;
 import java.util.Arrays;
 import java.util.Collections;
@@ -24,7 +26,7 @@ import java.util.List;
  * @version 4.0 - DECISION TABLE ENHANCED
  */
 @DisplayName("StudentAnalyzer - Decision Table Testing Suite")
-public class StudentAnalyzerDecisionTableTest {
+public class StudentAnalyzerTest {
     
     private StudentAnalyzer analyzer;
     
@@ -39,6 +41,7 @@ public class StudentAnalyzerDecisionTableTest {
     // ==========================================
     
     @Nested
+    @TestInstance(Lifecycle.PER_CLASS)
     @DisplayName("DT1: countExcellentStudents() - Complete Decision Table")
     class CountExcellentDecisionTable {
         
@@ -145,6 +148,7 @@ public class StudentAnalyzerDecisionTableTest {
     // ==========================================
     
     @Nested
+    @TestInstance(Lifecycle.PER_CLASS)
     @DisplayName("DT2: calculateValidAverage() - Complete Decision Table")
     class CalculateAverageDecisionTable {
         
@@ -221,6 +225,7 @@ public class StudentAnalyzerDecisionTableTest {
     // ==========================================
     
     @Nested
+    @TestInstance(Lifecycle.PER_CLASS)
     @DisplayName("DT3: Boundary Value Combinations")
     class BoundaryDecisionTable {
         
@@ -277,6 +282,7 @@ public class StudentAnalyzerDecisionTableTest {
     // ==========================================
     
     @Nested
+    @TestInstance(Lifecycle.PER_CLASS)
     @DisplayName("DT4: Extreme Scenario Combinations")
     class ExtremeDecisionTable {
         
@@ -346,6 +352,7 @@ public class StudentAnalyzerDecisionTableTest {
     // ==========================================
     
     @Nested
+    @TestInstance(Lifecycle.PER_CLASS)
     @DisplayName("Legacy: BVA Tests (from v3.0)")
     class BVALegacyTests {
         
@@ -375,6 +382,7 @@ public class StudentAnalyzerDecisionTableTest {
     }
     
     @Nested
+    @TestInstance(Lifecycle.PER_CLASS)
     @DisplayName("Legacy: EP Tests (from v3.0)")
     class EPLegacyTests {
         

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>StudentAnalyzer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">student-analyzer</a> &gt; <a href="index.source.html" class="el_package">default</a> &gt; <span class="el_source">StudentAnalyzer.java</span></div><h1>StudentAnalyzer.java</h1><pre class="source lang-java linenums">import java.util.List;
+
+/**
+ * Phân tích điểm số sinh viên
+ * Cung cấp các phương thức để đếm sinh viên xuất sắc và tính điểm trung bình
+ * 
+ * @author Testing Team
+ * @version 2.0
+ */
+<span class="fc" id="L10">public class StudentAnalyzer {</span>
+    
+    // Constants - Dễ bảo trì và tránh magic numbers
+    private static final double MIN_VALID_SCORE = 0.0;
+    private static final double MAX_VALID_SCORE = 10.0;
+    private static final double EXCELLENT_THRESHOLD = 8.0;
+    
+    /**
+     * Đếm số sinh viên xuất sắc (điểm &gt;= 8.0)
+     * Chỉ tính các điểm hợp lệ (0-10, không null)
+     * 
+     * @param scores Danh sách điểm số của sinh viên
+     * @return Số lượng sinh viên xuất sắc, trả về 0 nếu list null/rỗng
+     * 
+     * @example
+     * &lt;pre&gt;
+     * countExcellentStudents(Arrays.asList(9.0, 8.5, 7.0)) =&gt; 2
+     * countExcellentStudents(Arrays.asList(7.0, 6.5))     =&gt; 0
+     * countExcellentStudents(null)                        =&gt; 0
+     * &lt;/pre&gt;
+     */
+    public int countExcellentStudents(List&lt;Double&gt; scores) {
+<span class="fc bfc" id="L32" title="All 4 branches covered.">        if (scores == null || scores.isEmpty()) {</span>
+<span class="fc" id="L33">            return 0;</span>
+        }
+        
+<span class="fc" id="L36">        int count = 0;</span>
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        for (Double score : scores) {</span>
+<span class="fc bfc" id="L38" title="All 4 branches covered.">            if (isValidScore(score) &amp;&amp; score &gt;= EXCELLENT_THRESHOLD) {</span>
+<span class="fc" id="L39">                count++;</span>
+            }
+<span class="fc" id="L41">        }</span>
+<span class="fc" id="L42">        return count;</span>
+    }
+    
+    /**
+     * Tính điểm trung bình của các điểm hợp lệ
+     * Bỏ qua các điểm không hợp lệ (&lt; 0, &gt; 10, null)
+     * 
+     * @param scores Danh sách điểm số của sinh viên
+     * @return Điểm trung bình, trả về 0.0 nếu không có điểm hợp lệ nào
+     * 
+     * @example
+     * &lt;pre&gt;
+     * calculateValidAverage(Arrays.asList(8.0, 9.0, 10.0))      =&gt; 9.0
+     * calculateValidAverage(Arrays.asList(5.0, -1.0, 8.0))      =&gt; 6.5
+     * calculateValidAverage(Arrays.asList(-1.0, 11.0))          =&gt; 0.0
+     * &lt;/pre&gt;
+     */
+    public double calculateValidAverage(List&lt;Double&gt; scores) {
+<span class="fc bfc" id="L60" title="All 4 branches covered.">        if (scores == null || scores.isEmpty()) {</span>
+<span class="fc" id="L61">            return 0.0;</span>
+        }
+        
+<span class="fc" id="L64">        double sum = 0;</span>
+<span class="fc" id="L65">        int validCount = 0;</span>
+        
+<span class="fc bfc" id="L67" title="All 2 branches covered.">        for (Double score : scores) {</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">            if (isValidScore(score)) {</span>
+<span class="fc" id="L69">                sum += score;</span>
+<span class="fc" id="L70">                validCount++;</span>
+            }
+<span class="fc" id="L72">        }</span>
+        
+<span class="fc bfc" id="L74" title="All 2 branches covered.">        return validCount == 0 ? 0.0 : sum / validCount;</span>
+    }
+    
+    /**
+     * Kiểm tra điểm có hợp lệ không
+     * Điểm hợp lệ phải: không null, &gt;= 0, &lt;= 10
+     * 
+     * @param score Điểm cần kiểm tra
+     * @return true nếu điểm hợp lệ, false nếu không
+     * 
+     * @implNote Method này được sử dụng nội bộ để tránh code trùng lặp
+     */
+    private boolean isValidScore(Double score) {
+<span class="fc bfc" id="L87" title="All 2 branches covered.">        return score != null </span>
+<span class="fc bfc" id="L88" title="All 2 branches covered.">            &amp;&amp; score &gt;= MIN_VALID_SCORE </span>
+<span class="fc bfc" id="L89" title="All 2 branches covered.">            &amp;&amp; score &lt;= MAX_VALID_SCORE;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
